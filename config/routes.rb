@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'pages/profile'
+  # get 'pages/all_my_transactions'
+  # get 'pages/all_my_external_transactions'
+  # get 'pages/all_groups'
+  get 'all_transactions', to: 'pages#all_my_transactions'
+  get 'all_external_transactions', to: 'pages#all_my_external_transactions'
+  get 'all_groups', to: 'pages#all_groups'
   get 'signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
