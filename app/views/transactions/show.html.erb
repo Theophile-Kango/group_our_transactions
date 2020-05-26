@@ -1,0 +1,9 @@
+<h1>Transaction</h1>
+<p>Title : <%= @transaction.name %></p>
+<p>Total : <%= @transaction.total %></p>
+<p>Created on : <%= @transaction.created_at.strftime("%d/%m/%Y") %> </p>
+<%= link_to 'Remove transaction', transaction_path(transaction_id: @transaction.id), method: :delete, 
+    data: {confirm: "Are you sure you want to remove the transaction ?"}, class: "btn btn-danger" %>
+<%= link_to 'Edit transaction', edit_transaction_path(transaction_id: @transaction.id), 
+class:"btn btn-primary" %>
+<p><%= link_to 'Back', transactions_path %></p>

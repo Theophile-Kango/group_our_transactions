@@ -1,0 +1,12 @@
+<h1><%= pluralize(@transactions.count, 'Transaction') %></h1>
+
+<p>Total: <%= @total %></p>
+<% @transactions.each do |trans| %>
+    <ul>
+        <li><%= link_to trans.name, trans %></li>
+    </ul>
+<% end %>
+
+<button><%= link_to 'New transaction', new_transaction_path %></button>
+
+<p><%= link_to 'Back', pages_profile_path %></p>

@@ -1,0 +1,7 @@
+<%= form_for @transaction do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Add new transaction'  %>
+    <%= f.label :total %>
+    <%= f.number_field :total, class: 'form-control'%><br>
+    <%= f.submit %>
+<% end %>
