@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
 
+
   get 'pages/profile'
   
-  get 'all_transactions', to: 'pages#all_my_transactions'
-  get 'all_external_transactions', to: 'pages#all_my_external_transactions'
-  get 'all_groups', to: 'pages#all_groups'
+  get 'all_external_transactions', to: 'transactions#external_transactions'
   get 'signup', to: 'users#new', as: 'signup'
+  put 'edit_profile', to: 'users#update'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get 'pages/profile', to: 'pages#profile', as: 'profile'
   resources :users, only: [:new, :create]
+  resources :groups
   resources :sessions, only: [:new, :create, :destroy]
   resources :transactions
   root to: 'sessions#new'

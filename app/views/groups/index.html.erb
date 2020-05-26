@@ -1,0 +1,14 @@
+<h1><%= pluralize(@groups.count, 'Group') %></h1>
+
+<% @groups.each do |group| %>
+    <%= image_tag url_for(group.icon) %>
+    <ul class="group-header">
+        <li>Name: <%= link_to group.name, group %></li>
+        <li>Created on : <%= group.created_at.strftime("%d/%m/%Y") %></li>
+    </ul>
+    <hr>
+<% end %>
+
+<button><%= link_to 'Create New', new_group_path %></button>
+
+<p><%= link_to 'Back', pages_profile_path %></p>

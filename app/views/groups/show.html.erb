@@ -1,0 +1,11 @@
+<h1>Group</h1>
+<p><%= @group.name %></p>
+<p><%= image_tag url_for(@group.icon) %></p>
+<p>Created by: <%= @group.user.name %></p>
+
+<% @group_transactions.each do |transaction| %>
+    <p><%= link_to transaction.name, transaction %></p>
+    <button>Add to group</button>
+<% end %>
+
+<p><%= link_to 'Back', groups_path %></p>

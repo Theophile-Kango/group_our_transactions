@@ -3,8 +3,12 @@
 <p>Total: <%= @total %></p>
 <% @transactions.each do |trans| %>
     <ul>
-        <li><%= link_to trans.name, trans %></li>
+        <li>Name: <%= link_to trans.name, trans %></li>
+        <li>Amount: <%= trans.total %></li>
+        <li>Icon of group it belongs to</li>
+        <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
     </ul>
+    <hr>
 <% end %>
 
 <button><%= link_to 'New transaction', new_transaction_path %></button>

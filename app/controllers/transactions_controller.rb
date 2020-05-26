@@ -12,6 +12,10 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def external_transactions
+    
+  end
+
   def new
     user = User.find_by(id: session[:user_id])
     @transaction = user.transactions.new
@@ -45,7 +49,7 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction.destroy
-    redirect_to transactions_url, notice: 'Micropost was successfully destroyed.'
+    redirect_to transactions_url, notice: 'Transaction was successfully destroyed.'
   end
 
   private
