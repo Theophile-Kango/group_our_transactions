@@ -10,8 +10,4 @@ class Group < ApplicationRecord
     transactions << trans
   end
 
-  def has?(value)
-    group_transactions.include?(value)
-  end
-
 end

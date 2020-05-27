@@ -15,7 +15,7 @@
 <h2>Transaction(s)</h2>
 <% @group_trans.each do |trans| %>
     <p><%= link_to trans.name, trans %></p>
-    <% if @group.has?(trans) %>
+    <% if trans.groups.size >= 1 %>
         <%= link_to 'Delete', '', class: "btn btn-danger" %>
     <% else %>
         <%= form_for @group.group_transactions.build(transaction_id: trans.id) do |f| %>
