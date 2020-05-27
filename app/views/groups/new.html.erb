@@ -1,13 +1,2 @@
 <h1>New Group</h1>
-<% @group.errors.full_messages.each do |error|%>
-    <ul>
-        <li><%= error %></li>
-    </ul>
-<% end %>
-<%= form_for @group do |f|%>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: 'Add new transaction'  %>
-    <%= f.label :icon %>
-    <%= f.file_field :icon, class: 'form-control'%><br>
-    <%= f.submit %>
-<% end %>
+<%= render 'form' %>

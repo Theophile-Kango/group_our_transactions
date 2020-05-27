@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:edit, :update, :destroy]
 
   def index
     @groups = Group.all.order('name ASC')
@@ -23,15 +23,16 @@ class GroupsController < ApplicationController
   end
 
   def show
-    user = User.find_by(id: session[:user_id])
-    @group_trans = user.transactions
+    @group = Group.all.find(params[:id])
+    @user = User.find_by(id: session[:user_id])
+    @group_trans = @user.groups
   end
 
   def edit
   end
 
   def update
-    if @group.update(transaction_params)
+    if @group.update(group_params)
       redirect_to @group, notice: 'Group was successfully updated.'
     else
       render :edit 
@@ -39,8 +40,8 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @transaction.destroy
-    redirect_to transactions_url, notice: 'Group was successfully destroyed.'
+    @group.destroy
+    redirect_to groups_url, notice: 'Group was successfully destroyed.'
   end
 
   private
