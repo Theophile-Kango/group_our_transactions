@@ -17,7 +17,6 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to @group, notice: 'Group was successfully created.'
     else
-      
       render :new, alert: 'Group was not created.'
     end
   end
@@ -25,7 +24,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.all.find(params[:id])
     @user = User.find_by(id: session[:user_id])
-    @group_trans = @user.groups
+    @group_trans = @user.transactions
+    @groups = @user.groups
   end
 
   def edit
