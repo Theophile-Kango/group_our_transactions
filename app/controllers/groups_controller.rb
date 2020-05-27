@@ -49,7 +49,7 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :icon)
   end
-
+  
   def set_group
     user = User.find_by(id: session[:user_id])
     @group = user.groups.find(params[:id])

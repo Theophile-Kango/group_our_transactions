@@ -7,7 +7,7 @@ class Group < ApplicationRecord
 
 
   def add_group_trans(trans)
-    group_transactions.create(transaction: trans)
+    transactions << trans
   end
 
   def has?(value)

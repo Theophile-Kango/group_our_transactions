@@ -1,7 +1,7 @@
 class GroupTransactionsController < ApplicationController
     def create
-        Group_transaction.create(group_transactions_params)
-        redirect_to @group
+        GroupTransaction.create!(group_transactions_params)
+        redirect_to groups_path, notice: 'Group was successfully added.'
     end
 
     private

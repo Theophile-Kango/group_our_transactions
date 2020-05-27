@@ -3,10 +3,14 @@
 <p>Total: <%= @total %></p>
 <% @transactions.each do |trans| %>
     <ul>
-        <li>Name: <%= link_to trans.name, trans %></li>
-        <li>Amount: <%= trans.total %></li>
-        <li>Icon of group it belongs to</li>
-        <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
+        <% if trans.groups.size >= 1%>
+            <% trans.groups.each do |group| %>
+                <li>Name: <%= link_to trans.name, trans %></li>
+                <li>Amount: <%= trans.total %></li>
+                <li><%= image_tag url_for(group.icon) %></li>
+                <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
+            <% end %>
+        <% end %>
     </ul>
     <hr>
 <% end %>

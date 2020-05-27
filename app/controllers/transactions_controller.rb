@@ -13,7 +13,8 @@ class TransactionsController < ApplicationController
   end
 
   def external_transactions
-    
+    user = User.find_by(id: session[:user_id])
+    @transactions = user.transactions
   end
 
   def new

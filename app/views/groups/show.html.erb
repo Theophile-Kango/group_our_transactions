@@ -12,7 +12,7 @@
     <% end %>
 <% end %>
 
-<h2>Transactions</h2>
+<h2>Transaction(s)</h2>
 <% @group_trans.each do |trans| %>
     <p><%= link_to trans.name, trans %></p>
     <% if @group.has?(trans) %>
@@ -25,6 +25,5 @@
         <% end %>
     <% end %>
 <% end %>
-
 
 <p><%= link_to 'Back', groups_path %></p>

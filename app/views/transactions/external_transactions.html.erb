@@ -1,2 +1,14 @@
 <h1>External Transaction</h1>
+
+<% @transactions.each do |trans| %>
+    <ul>
+        <% if trans.groups.size < 1%>
+            <li>Name: <%= link_to trans.name, trans %></li>
+            <li>Amount: <%= trans.total %></li>
+            <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
+        <% end %>
+    </ul>
+    <hr>
+<% end %>
+
 <p><%= link_to 'Back', transactions_path %></p>
