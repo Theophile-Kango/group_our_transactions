@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
 
   def show
     user = User.find_by(id: session[:user_id])
-    @group_transactions = user.transactions
+    @group_trans = user.transactions
   end
 
   def edit

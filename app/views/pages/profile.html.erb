@@ -1,4 +1,9 @@
-<%= link_to avatar_for(@user), edit_profile_path %>
+
+<% if @user.avatar.attached? %>
+    <%= link_to image_tag(@user.avatar), edit_user_path(@user.id) %>
+<% else %>
+    <%= link_to image_tag('avatar.png'), edit_user_path(@user.id) %>
+<% end %>
 <p><%= link_to 'all my transactions', transactions_path %></p>
 <p><%= link_to 'all my external transactions', all_external_transactions_path %></p>
 <p><%= link_to 'all my groups', groups_path %></p>

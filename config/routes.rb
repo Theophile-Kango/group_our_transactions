@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   
   get 'all_external_transactions', to: 'transactions#external_transactions'
   get 'signup', to: 'users#new', as: 'signup'
-  put 'edit_profile', to: 'users#update'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
@@ -14,6 +13,8 @@ Rails.application.routes.draw do
   resources :groups
   resources :sessions, only: [:new, :create, :destroy]
   resources :transactions
+  resources :group_transactions
+  resources :users, only: [:new, :create, :edit, :update]
   root to: 'sessions#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
