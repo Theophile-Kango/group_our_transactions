@@ -13,17 +13,22 @@
 <% end %>
 
 <h2>Transaction(s)</h2>
-<% @group_trans.each do |trans| %>
-    <p><%= link_to trans.name, trans %></p>
-    <% if trans.groups.size >= 1 %>
-        <%= link_to 'Delete', '', class: "btn btn-danger" %>
-    <% else %>
-        <%= form_for @group.group_transactions.build(transaction_id: trans.id) do |f| %>
-            <%= f.hidden_field :transaction_id %>
-            <%= f.hidden_field :group_id %>
-            <button class="btn btn-primary">Add </button>
-        <% end %>
+
+<% @group.group_transactions.each do |group| %>
+    <% str = @transactions.find_by(id: group.transaction_id) %>
+    <% unless str.nil? %>
+      <p><%= str.name %></p>
+      <%= link_to 'Remove','', class: "btn btn-danger" %>
     <% end %>
 <% end %>
+<% @transactions.each do |tr| %>
+    <p><%= tr.name %></p>
+    <%= form_for @group.group_transactions.build(transaction_id: tr.id) do |f| %>
+        <%= f.hidden_field :transaction_id %>
+        <%= f.hidden_field :group_id %>
+        <button class="btn btn-primary">Add </button>
+    <% end %>
+<% end %>
+
 
 <p><%= link_to 'Back', groups_path %></p>

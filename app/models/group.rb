@@ -10,4 +10,8 @@ class Group < ApplicationRecord
     transactions << trans
   end
 
+  def has?(value)
+    group_transactions.where(transaction: value).first
+  end
+
 end

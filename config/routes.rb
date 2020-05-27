@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'pages/profile'
-  
+  delete 'remove_group_trans', to: 'group_transactions#destroy'
   get 'all_external_transactions', to: 'transactions#external_transactions'
   get 'signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new'

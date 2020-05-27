@@ -24,8 +24,11 @@ class GroupsController < ApplicationController
   def show
     @group = Group.all.find(params[:id])
     @user = User.find_by(id: session[:user_id])
+    user = User.find_by(id: session[:user_id])
+    @transactions = user.transactions
     @group_trans = @user.transactions
     @groups = @user.groups
+    @group_list = Group.all
   end
 
   def edit
