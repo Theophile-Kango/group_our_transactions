@@ -69,7 +69,10 @@ body{
         
     }
     form{
-        margin: 20px;
+        position: absolute;
+        top: 40%;
+        padding: 20px;
+        width: 100%;
         input{
             font-weight: normal;
             width: 100%;

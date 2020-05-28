@@ -64,3 +64,96 @@ body{
         }
     }
 }
+
+//Profile
+
+.profile{
+    display: flex;
+    width: 100%;
+    background: #254c79;
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%,  $main 35%, rgba(2,0,36,1) 100%);
+    color: white;
+    font-weight: normal;
+    font-size: 1em;
+    .menu{
+        margin: 25px 10px;
+        width: 75%;
+        .user{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            img{
+                width: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            li{
+                display: flex;
+                align-items: flex-start;
+                width: 250px;
+                margin-top: 20px;
+                border-bottom: 1px solid white;
+                span{
+                    border: 1px solid white;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    position: relative;
+                    top: -8px;
+                    padding: 10px;
+                }
+                a{
+                    color: white;
+                    text-transform: capitalize;
+                    display: inline-block;
+                    
+                }
+            }
+            #last{
+                border: none;
+            }
+        }
+    }
+    .group{
+        background: rgb(219, 208, 208);
+        width: 25%;
+        margin: 40px 0;
+        header{
+            height: 50px;
+            background: $main;
+            display: flex;
+            align-items: center;
+            span{
+                border: 1px solid white;
+                margin-left: 10px;
+                padding: 8px;
+            }
+        }
+        .details{
+            p{
+                background: white;
+                padding: 10px;
+                color: $text;
+            }
+            #resent{
+                margin-left: 20px;
+            }
+        }
+        ul{
+            margin-top: 10px;  
+            li{
+                list-style: none;
+                margin: 0 !important;
+                img{
+                    width: 90%;
+                   
+                }
+            }
+        }
+    }
+}

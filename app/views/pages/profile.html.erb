@@ -1,10 +1,48 @@
 
-<% if @user.avatar.attached? %>
-    <%= link_to image_tag(@user.avatar), edit_user_path(@user.id) %>
-<% else %>
-    <%= link_to image_tag('avatar.png'), edit_user_path(@user.id) %>
-<% end %>
-<p><%= link_to 'all my transactions', transactions_path %></p>
-<p><%= link_to 'all my external transactions', all_external_transactions_path %></p>
-<p><%= link_to 'all my groups', groups_path %></p>
-<p><%= link_to 'log out', logout_path %></p>
+<div class="profile">
+    <div class="menu">
+        <div class="user">
+            <% if @user.avatar.attached? %>
+                <%= link_to image_tag(@user.avatar), edit_user_path(@user.id) %>
+            <% else %>
+                <%= link_to image_tag('avatar.png'), edit_user_path(@user.id) %>
+            <% end %>
+            <p><%= @user.name %></p>
+        </div>
+        <ul>
+            <li>
+                <span class="glyphicon glyphicon-tasks"></span>
+                <%= link_to 'all my transactions', transactions_path %>
+            </li>
+            
+            <li>
+                <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                <%= link_to 'all my external transactions', all_external_transactions_path %>
+            </li>
+            
+            <li>
+                <span class="glyphicon glyphicon-briefcase"></span>
+                <%= link_to 'all my groups', groups_path %>
+            </li>
+        
+            <li id="last">
+                <span class="glyphicon glyphicon-off"></span>
+                <%= link_to 'log out', logout_path %>
+            </li>
+        </ul>
+    </div>
+    <div class="group">
+        <header>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </header>
+        <div class="details">
+            <p>Chapter</p>
+            <p id="resent">Recent trans</p>
+        </div>
+        <% @groups.each do |group| %>
+            <ul>
+                <li><%= link_to image_tag url_for(group.icon) %></li>
+            </ul>
+        <% end %>
+    </div>
+</div>
