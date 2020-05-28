@@ -1,20 +1,43 @@
-<h1><%= pluralize(@transactions.count, 'Transaction') %></h1>
-
-<p>Total: <%= @total %></p>
-<% @transactions.each do |trans| %>
-    <ul>
-        <% if trans.groups.size >= 1%>
-            <% trans.groups.each do |group| %>
-                <li>Name: <%= link_to trans.name, trans %></li>
-                <li>Amount: <%= trans.total %></li>
-                <li><%= image_tag url_for(group.icon) %></li>
-                <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
+<div class="transaction-home">
+    <header>
+        <div class="princ">
+            <h2><span class="glyphicon glyphicon-align-justify"></span></h2>
+            <h1><%= pluralize(@transactions.count, 'Transaction') %></h1>
+            <h2><span class="glyphicon glyphicon-search"></span></h2>
+        </div>
+        <div class="order">
+            <p>Most recent</p>
+            <p>Most ancient</p>
+        </div>
+    </header>
+    <section>
+        <p>
+            Total 
+            <span><%= pluralize(@total,'minute') %></span>
+        </p>
+        <% @transactions.each do |trans| %>
+            <% if trans.groups.size >= 1%>
+                <article>
+                    <% trans.groups.each do |group| %>
+                        <ul>
+                            <li><%= image_tag url_for(group.icon) %></li>
+                            <li id="details"> 
+                                <%= link_to trans.name, trans %>
+                                <small>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></small>
+                            </li>
+                            <li>Time: <%= pluralize(trans.total, 'minute') %></li>
+                        </ul>
+                    <% end %>
+                </article>
             <% end %>
         <% end %>
-    </ul>
-    <hr>
-<% end %>
 
-<button><%= link_to 'New transaction', new_transaction_path %></button>
+        <button><%= link_to 'New transaction', new_transaction_path %></button>
 
-<p><%= link_to 'Back', pages_profile_path %></p>
+        <p id="back"><%= link_to 'Back', pages_profile_path %></p>
+    </section>
+    <footer>
+        <p>scan</p>
+    </footer>
+</div>
+

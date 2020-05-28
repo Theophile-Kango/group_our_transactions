@@ -83,8 +83,12 @@ body{
             flex-direction: column;
             align-items: center;
             margin-bottom: 30px;
+            p{
+                margin: 10px;
+            }
             img{
                 width: 80px;
+                height: 80px;
                 border-radius: 50%;
                 object-fit: cover;
             }
@@ -123,6 +127,7 @@ body{
         background: rgb(219, 208, 208);
         width: 25%;
         margin: 40px 0;
+        overflow: hidden;
         header{
             height: 50px;
             background: $main;
@@ -150,10 +155,27 @@ body{
                 list-style: none;
                 margin: 0 !important;
                 img{
-                    width: 90%;
-                   
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
                 }
             }
         }
+        footer{
+            background: $second;
+            width: 100%;
+            height: 50px;
+            position: relative;
+            bottom: -60px;
+            
+            p{
+                height: 35px;
+                position: relative;
+                left: 20px;
+                top: 8px;
+                border: 1px solid white;
+            }
+        }
     }
+    
 }

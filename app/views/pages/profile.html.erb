@@ -37,12 +37,15 @@
         </header>
         <div class="details">
             <p>Chapter</p>
-            <p id="resent">Recent trans</p>
+            <p id="resent">Recent</p>
         </div>
         <% @groups.each do |group| %>
             <ul>
                 <li><%= link_to image_tag url_for(group.icon) %></li>
             </ul>
         <% end %>
+        <footer>
+            <p></p>
+        </footer>
     </div>
 </div>

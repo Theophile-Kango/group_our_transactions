@@ -1,3 +1,131 @@
 // Place all the styles related to the transactions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$main: #3778c2;
+$second: #5fb523;
+$text: #434b54;
+
+body{
+    font-family: 'proxima_nova_rgregular';
+    font-weight: bold;
+    color: $text;
+    
+}
+
+//transactions
+
+.transaction-home{
+    color: white;
+    font-weight: normal;
+    font-size: 1em;
+
+    header{
+        background: $main;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 10px;
+        .princ{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            h1{
+                color: white;
+                font-size: 1.4em;
+            }
+            h2{
+                color: white;
+                font-size: 1.2em;
+            }
+            span{
+                padding: 10px;
+                border: 1px solid white;
+            }
+        }
+        .order{
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    }
+
+    section{
+        background: rgb(219, 208, 208);
+        p{
+            background: white;
+            padding: 20px;
+            color: $text;
+            display: flex;
+            justify-content: space-between;
+            span{
+                font-weight: bold;
+            }
+        }
+        article{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            ul{
+                display: flex;
+                padding: 20px;
+                background: white;
+                color: $text;
+                width: 90%;
+                justify-content: space-between;
+                li{
+                    list-style: none;
+                    img{
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                    }
+                }
+                #details{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+        button{
+            width: 100%;
+            background: $main;
+            border: none;
+            outline: none;
+            height: 40px;
+            &:hover{
+                background: #254c79;
+            }
+            a{
+                color: white;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+        #back{
+            height: 40px;
+            a{
+                width: 100%;
+                text-align: center;
+                color: $text;
+            }
+        }
+    }
+    
+    footer{
+        background: $second;
+        height: 50px;
+        padding: 10px;
+        p{
+            font-size: 1.4em;
+            text-align: center;
+            border: 1px solid white;
+        }
+    }
+    
+}

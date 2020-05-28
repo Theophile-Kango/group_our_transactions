@@ -1,5 +1,9 @@
-<div class="container">
-    <h1>Edit profile</h1>
+<div class="user_edit">
+    <header>
+        <h2><%= link_to '' , root_path, class: "glyphicon glyphicon-arrow-left" %></h2>
+        <h1>Edit Profile <%= @user.name %></h1>
+        <h2><%= link_to "Log In", login_path %></h2>
+    </header>
     <%= form_with(model: @user, local: true) do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>

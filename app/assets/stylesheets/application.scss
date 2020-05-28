@@ -40,11 +40,15 @@ body{
     color: $text;
     
 }
-
+//alert
+.alert{
+    margin-bottom: 0 !important;
+}
 //sign up, loggin
 
 .sign_up,
-.login
+.login,
+.user_edit
 {
     header{
         background: $main;
