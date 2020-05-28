@@ -1,34 +1,51 @@
-<h1>Group</h1>
-<p><%= @group.name %></p>
-<p><%= image_tag url_for(@group.icon) %></p>
-<p>Created by: <%= @group.user.name %></p>
-
-<% @groups.each do |group| %>
-    <p><%= link_to group.name, group %></p>
-    <% if @group.user.id == @user.id %> 
-        <%= link_to 'Delete Group', group_path(group_id: group.id), method: :delete, 
-        data: {confirm: "Are you sure you want to remove the group ?"}, class: "btn btn-danger" %>
-        <%= link_to 'Edit Group', edit_group_path(group_id: group.id), class: "btn btn-default" %>
-    <% end %>
-<% end %>
-
-<h2>Transaction(s)</h2>
-
-<% @group.group_transactions.each do |group| %>
-    <% str = @transactions.find_by(id: group.transaction_id) %>
-    <% unless str.nil? %>
-      <p><%= str.name %></p>
-      <%= link_to 'Remove','', class: "btn btn-danger" %>
-    <% end %>
-<% end %>
-<% @transactions.each do |tr| %>
-    <p><%= tr.name %></p>
-    <%= form_for @group.group_transactions.build(transaction_id: tr.id) do |f| %>
-        <%= f.hidden_field :transaction_id %>
-        <%= f.hidden_field :group_id %>
-        <button class="btn btn-primary">Add </button>
-    <% end %>
-<% end %>
-
-
-<p><%= link_to 'Back', groups_path %></p>
+<div class="groups-show">
+    <header>
+        <div class="princ">
+            <h2><span class="glyphicon glyphicon-align-justify"></span></h2>
+            <h1><%= @group.name %></h1>
+            <h2><span class="glyphicon glyphicon-search"></span></h2>
+        </div>
+        <div class="order">
+            <p>Most recent</p>
+            <p>Most ancient</p>
+        </div>
+    </header>
+    <section>
+        <article>
+            <ul>
+                <li><%= image_tag url_for(@group.icon) %></li>
+            </ul>
+        </article>
+        <p>Created by: <%= @group.user.name %></p>
+        <% @groups.each do |group| %>
+            <p><%= link_to group.name, group %></p>
+            <% if @group.user.id == @user.id %>
+                <div class="buttons">
+                    <%= link_to 'Delete Group', group_path(group_id: group.id), method: :delete, 
+                    data: {confirm: "Are you sure you want to remove the group ?"}, class: "btn btn-danger" %>
+                    <%= link_to 'Edit Group', edit_group_path(group_id: group.id), class: "btn btn-default" %>
+                </div>
+            <% end %>
+        <% end %>
+        <h2>Transaction(s)</h2>
+        <% @group.group_transactions.each do |group| %>
+            <% str = @transactions.find_by(id: group.transaction_id) %>
+            <% unless str.nil? %>
+            <p><%= str.name %></p>
+            <button id="danger" class="btn btn-danger"><%= link_to 'Remove','' %></button>
+            <% end %>
+        <% end %>
+        <% @transactions.each do |tr| %>
+            <p><%= tr.name %></p>
+            <%= form_for @group.group_transactions.build(transaction_id: tr.id) do |f| %>
+                <%= f.hidden_field :transaction_id %>
+                <%= f.hidden_field :group_id %>
+                <button class="btn btn-primary">Add </button>
+            <% end %>
+        <% end %>
+        <p id="back"><%= link_to 'Back', groups_path %></p>
+    </section>
+    <footer>
+        <p>scan</p>
+    </footer>
+</div>

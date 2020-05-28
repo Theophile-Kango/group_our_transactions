@@ -1,14 +1,30 @@
-<h1>External Transaction</h1>
-
-<% @transactions.each do |trans| %>
-    <ul>
-        <% if trans.groups.size < 1%>
-            <li>Name: <%= link_to trans.name, trans %></li>
-            <li>Amount: <%= trans.total %></li>
-            <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
+<div class="exterbal_transaction">
+    <% @count = 0%>
+    <header>
+        <div class="princ">
+            <h2><span class="glyphicon glyphicon-align-justify"></span></h2>
+            <h1><%= pluralize(@count, 'External Transaction') %></h1>
+            <h2><span class="glyphicon glyphicon-search"></span></h2>
+        </div>
+        <div class="order">
+            <p>Most recent</p>
+            <p>Most ancient</p>
+        </div>
+    </header>
+    <section>
+        <% @transactions.each do |trans| %>
+            <ul>
+                <% if trans.groups.size < 1%>
+                    <li>Name: <%= link_to trans.name, trans %></li>
+                    <li>Amount: <%= trans.total %></li>
+                    <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
+                    <% @count += 1%>
+                <% end %>
+            </ul>
         <% end %>
-    </ul>
-    <hr>
-<% end %>
-
-<p><%= link_to 'Back', transactions_path %></p>
+        <p id="back"><%= link_to 'Back', transactions_path %></p>
+    </section>
+    <footer id="footer-show">
+        <p>scan</p>
+    </footer>
+</div>

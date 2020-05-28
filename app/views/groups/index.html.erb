@@ -1,14 +1,31 @@
-<h1><%= pluralize(@groups.count, 'Group') %></h1>
 
-<% @groups.each do |group| %>
-    <%= image_tag url_for(group.icon) %>
-    <ul class="group-header">
-        <li>Name: <%= link_to group.name, group %></li>
-        <li>Created on : <%= group.created_at.strftime("%d/%m/%Y") %></li>
-    </ul>
-    <hr>
-<% end %>
-
-<button><%= link_to 'Create New', new_group_path %></button>
-
-<p><%= link_to 'Back', pages_profile_path %></p>
+<div class="groups">
+    <header>
+        <div class="princ">
+            <h2><span class="glyphicon glyphicon-align-justify"></span></h2>
+            <h1><%= pluralize(@groups.count, 'Group') %></h1>
+            <h2><span class="glyphicon glyphicon-search"></span></h2>
+        </div>
+        <div class="order">
+            <p>Most recent</p>
+            <p>Most ancient</p>
+        </div>
+    </header>
+    
+    <section>
+        <% @groups.each do |group| %>
+            <article>
+                <ul>
+                    <li><%= image_tag url_for(group.icon) %></li>
+                    <li id="details">Name: <%= link_to group.name, group %></li>
+                    <li>Created on : <%= group.created_at.strftime("%d/%m/%Y") %></li>
+                </ul>
+            </article>
+        <% end %>
+        <button><%= link_to 'Create New', new_group_path %></button>
+        <p id="back"><%= link_to 'Back', pages_profile_path %></p>
+    </section>
+    <footer>
+        <p>scan</p>
+    </footer>
+</div>

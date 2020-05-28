@@ -6,8 +6,8 @@ class GroupsController < ApplicationController
   end
 
   def new
-    user = User.find_by(id: session[:user_id])
-    @group = user.groups.new
+    @user = User.find_by(id: session[:user_id])
+    @group = @user.groups.new
   end
 
   def create
@@ -32,6 +32,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(id: session[:user_id])
   end
 
   def update

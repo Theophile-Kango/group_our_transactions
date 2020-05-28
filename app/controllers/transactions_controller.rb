@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
 
   def index
     user = User.find_by(id: session[:user_id])
-    @transactions = user.transactions
+    @transactions = user.transactions.order('created_at DESC')
     @total = 0
     if @transactions.size >= 1
       @transactions.each do |trans|
@@ -18,8 +18,8 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    user = User.find_by(id: session[:user_id])
-    @transaction = user.transactions.new
+    @user = User.find_by(id: session[:user_id])
+    @transaction = @user.transactions.new
   end
 
   def create

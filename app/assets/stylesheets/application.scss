@@ -48,7 +48,11 @@ body{
 
 .sign_up,
 .login,
-.user_edit
+.user_edit,
+.edit-transaction, 
+.create-transaction,
+.group-edit,
+.group-create
 {
     header{
         background: $main;

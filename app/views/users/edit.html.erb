@@ -2,12 +2,12 @@
     <header>
         <h2><%= link_to '' , root_path, class: "glyphicon glyphicon-arrow-left" %></h2>
         <h1>Edit Profile <%= @user.name %></h1>
-        <h2><%= link_to "Log In", login_path %></h2>
+        <h2><%= link_to "Log Out", logout_path %></h2>
     </header>
     <%= form_with(model: @user, local: true) do |f| %>
         <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-        <%= f.file_field :avatar, class: 'form-control' %>
-        <%= f.submit "Submit" %>
+        <%= f.text_field :name %>
+        <%= f.file_field :avatar %>
+        <%= f.submit "Submit", class: "submit" %>
     <% end %>
 </div>
