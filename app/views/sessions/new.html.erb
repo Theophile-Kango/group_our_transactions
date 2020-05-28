@@ -1,11 +1,11 @@
-<% %>
-
-<div>
-    <h1>Log in</h1>
+<div class="login">
+    <header>
+        <h2><%= link_to '' , root_path, class: "glyphicon glyphicon-arrow-left" %></h2>
+        <h1>Log in</h1>
+        <h2><%= link_to "Sign Up", signup_path %></h2>
+    </header>
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.submit "Log in" %>
+        <%= f.text_field :name, placeholder: "name" %>
+        <%= f.submit "Log in", class: "submit" %>
     <% end %>
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
 </div>
