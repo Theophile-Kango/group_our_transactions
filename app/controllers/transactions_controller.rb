@@ -63,7 +63,7 @@ class TransactionsController < ApplicationController
   end
 
   def set_transaction
-    user = User.find_by(id: session[:user_id])
-    @transaction = user.transactions.find(params[:id])
+    @user = User.find_by(id: session[:user_id])
+    @transaction = @user.transactions.find(params[:id])
   end
 end
