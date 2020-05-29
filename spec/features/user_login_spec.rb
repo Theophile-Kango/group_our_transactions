@@ -4,6 +4,6 @@ RSpec.describe 'signup page', type: :feature do
     visit signup_path
     fill_in 'user_name', with: 'maggie'
     click_button 'Submit'
-    expect(page).to have_content('all my transactions')
+    expect(page).to have_content('maggie')
   end
 end

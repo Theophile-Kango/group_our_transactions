@@ -6,6 +6,6 @@ RSpec.describe 'login page', type: :feature do
     visit login_path
     fill_in 'session_name', with: user.name
     click_button 'Log in'
-    expect(page).to have_content('all my transactions')
+    expect(page).to have_content('Gaby')
   end
 end
