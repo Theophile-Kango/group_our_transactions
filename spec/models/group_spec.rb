@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   context 'validation test' do
-    it 'ensures first name presence' do
-      group = Group.new(name: 'Programming cours', icon: 'bot image').save
+    it 'ensures name presence' do
+      group = Group.new(name: 'Programming cours').save
       expect(group).to eq(false)
     end
   end
@@ -22,5 +22,4 @@ RSpec.describe Group, type: :model do
       expect(t.macro).to eq(:has_many)
     end
   end
-
 end

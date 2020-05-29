@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe GroupTransaction, type: :model do
-
   context 'Association' do
     it 'should belong to group' do
       t = GroupTransaction.reflect_on_association(:group)

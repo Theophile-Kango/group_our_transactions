@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: %i[edit update]
   before_action :logged_in?, only: %i[create new]
 
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(params.require(:user).permit([:name]))
     if @user.save
@@ -19,14 +19,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
       redirect_to profile_path, notice: 'User was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 

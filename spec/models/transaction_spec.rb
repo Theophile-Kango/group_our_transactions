@@ -22,5 +22,4 @@ RSpec.describe Transaction, type: :model do
       expect(t.macro).to eq(:has_many)
     end
   end
-
 end

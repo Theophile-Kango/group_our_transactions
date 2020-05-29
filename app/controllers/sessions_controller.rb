@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
   include SessionsHelper
 
-  def new
-  end
+  def new; end
 
   def create
     if params[:session][:name].blank?

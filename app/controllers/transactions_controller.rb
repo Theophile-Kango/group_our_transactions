@@ -1,14 +1,15 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: %i[show edit update destroy]
 
   def index
     user = User.find_by(id: session[:user_id])
     @transactions = user.transactions.order('created_at DESC')
     @total = 0
-    if @transactions.size >= 1
-      @transactions.each do |trans|
-        @total += trans.total
-      end
+
+    return unless @transactions.size >= 1
+
+    @transactions.each do |trans|
+      @total += trans.total
     end
   end
 
@@ -34,17 +35,15 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @transaction.update(transaction_params)
       redirect_to @transaction, notice: 'Transaction was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 

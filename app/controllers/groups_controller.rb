@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update, :destroy]
+  before_action :set_group, only: %i[edit update destroy]
 
   def index
     @groups = Group.all.order('name ASC')
@@ -39,7 +39,7 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to @group, notice: 'Group was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 
@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :icon)
   end
-  
+
   def set_group
     user = User.find_by(id: session[:user_id])
     @group = user.groups.find(params[:id])

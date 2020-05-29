@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'pages/profile'
-  delete 'remove_group_trans', to: 'group_transactions#destroy'
+  delete 'remove_transaction', to: 'group_transactions#destroy'
   get 'all_external_transactions', to: 'transactions#external_transactions'
   get 'signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new', as: 'login'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :groups
   resources :sessions, only: [:new, :create, :destroy]
   resources :transactions
-  resources :group_transactions
+  resources :group_transactions, only: [:create, :destroy]
   resources :users, only: [:new, :create, :edit, :update]
   root to: 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
