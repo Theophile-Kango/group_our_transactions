@@ -27,7 +27,7 @@
                 </div>
             <% end %>
         <% end %>
-        <h2>Transaction(s)</h2>
+        <h2>Course(s)</h2>
         <% @group.group_transactions.each do |group| %>
             <% str = @transactions.find_by(id: group.transaction_id) %>
             <% unless str.nil? %>

@@ -2,7 +2,7 @@
     <header>
         <div class="princ">
             <h2><span class="glyphicon glyphicon-align-justify"></span></h2>
-            <h1><%= pluralize(@transactions.count, 'Transaction') %></h1>
+            <h1><%= pluralize(@transactions.count, 'Course') %></h1>
             <h2><span class="glyphicon glyphicon-search"></span></h2>
         </div>
         <div class="order">
@@ -13,7 +13,7 @@
     <section>
         <p>
             Total 
-            <span><%= pluralize(@total,'minute') %></span>
+            <span><%= pluralize(@total,'hour') %></span>
         </p>
         <% @transactions.each do |trans| %>
             <% if trans.groups.size >= 1%>
@@ -25,14 +25,14 @@
                                 <%= link_to trans.name, trans %>
                                 <small>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></small>
                             </li>
-                            <li>Time: <%= pluralize(trans.total, 'minute') %></li>
+                            <li>Time: <%= pluralize(trans.total, 'hour') %></li>
                         </ul>
                     <% end %>
                 </article>
             <% end %>
         <% end %>
 
-        <button><%= link_to 'New transaction', new_transaction_path %></button>
+        <button><%= link_to 'New Cours', new_transaction_path %></button>
 
         <p id="back"><%= link_to 'Back', pages_profile_path %></p>
     </section>
