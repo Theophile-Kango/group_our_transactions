@@ -6,7 +6,7 @@
 </header>
 <%= form_for @transaction do |f|%>
     <%= f.label :name %>
-    <%= f.text_field :name, placeholder: 'Add new transaction'  %>
+    <%= f.text_field :name, placeholder: 'The name of the teacher'  %>
     <%= f.label :total %>
     <%= f.number_field :total %>
     <%= f.submit "Submit", class: "submit" %>
