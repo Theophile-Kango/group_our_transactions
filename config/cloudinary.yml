@@ -1,0 +1,18 @@
+development:
+  cloud_name: davfa9wey
+  api_key: '739564135482128'
+  api_secret: DT0Ea3M2ulvpLAlFJqTvSZCnWEc
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: davfa9wey
+  api_key: '739564135482128'
+  api_secret: DT0Ea3M2ulvpLAlFJqTvSZCnWEc
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: davfa9wey
+  api_key: '739564135482128'
+  api_secret: DT0Ea3M2ulvpLAlFJqTvSZCnWEc
+  enhance_image_tag: true
+  static_file_support: false
