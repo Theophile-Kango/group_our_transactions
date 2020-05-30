@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   get 'edit/teacher', to: 'transactions#edit'
   get 'courses', to: 'groups#index'
   get 'course/new', to: 'groups#new'
- 
-  # get '*path' => redirect('/')
+
   resources :groups
   resources :sessions, only: [:new, :create, :destroy]
   resources :transactions

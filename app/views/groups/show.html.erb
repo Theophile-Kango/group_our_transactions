@@ -27,18 +27,15 @@
                 <li><%= image_tag url_for(@group.icon) %></li>
             </ul>
         </article>
-        <p>Created by: <%= @group.user.name %></p>
-        <% @groups.each do |group| %>
-            <p><%= link_to group.name, group %></p>
-            <% if @group.user.id == @user.id %>
-                <div class="buttons">
-                    <%= link_to 'Delete Course', group_path(group_id: group.id), method: :delete, 
-                    data: {confirm: "Are you sure you want to remove the group ?"}, class: "btn btn-danger" %>
-                    <%= link_to 'Edit Course', edit_group_path(group_id: group.id), class: "btn btn-default" %>
-                </div>
-            <% end %>
+        <p><%= link_to @group.name, group %></p>
+        <% if @group.user.id == @user.id %>
+            <div class="buttons">
+                <%= link_to 'Delete Course', group_path(group_id: group.id), method: :delete, 
+                data: {confirm: "Are you sure you want to remove the group ?"}, class: "btn btn-danger" %>
+                <%= link_to 'Edit Course', edit_group_path(group_id: group.id), class: "btn btn-default" %>
+            </div>
         <% end %>
-        <h2>Course(s)</h2>
+        <h2>Teacher(s)</h2>
         <% @group.group_transactions.each do |group| %>
             <% str = @transactions.find_by(id: group.transaction_id) %>
             <% unless str.nil? %>
