@@ -24,14 +24,13 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: session[:user_id])
-    @transaction = user.transactions.new(transaction_params)
+    @user = User.find_by(id: session[:user_id])
+    @transaction = @user.transactions.new(transaction_params)
 
     if @transaction.save
-      redirect_to @transaction, notice: 'Transaction was successfully created.'
+      redirect_to @transaction, notice: 'Teacher was successfully created.'
     else
-      timeline_transactions
-      render :new, alert: 'Transaction was not created.'
+      render :new, alert: 'Teacher was not created.'
     end
   end
 
@@ -53,10 +52,6 @@ class TransactionsController < ApplicationController
   end
 
   private
-
-  def timeline_transactions
-    @timeline_transactions = Transaction.where(user: current_user).ordered_by_most_recent
-  end
 
   def transaction_params
     params.require(:transaction).permit(:name, :total)

@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
 
-
-  get 'pages/profile'
   delete 'remove_transaction', to: 'group_transactions#destroy'
-  get 'all_external_transactions', to: 'transactions#external_transactions'
+  get 'external_teachers', to: 'transactions#external_transactions'
   get 'signup', to: 'users#new', as: 'signup'
-  get '/login', to: 'sessions#new', as: 'login'
-  post '/login', to: 'sessions#create'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  get 'pages/profile', to: 'pages#profile', as: 'profile'
-  resources :users, only: [:new, :create]
+  get 'profile', to: 'pages#profile', as: 'profile'
+  get 'teachers', to: 'transactions#index'
+  get 'teacher/new', to: 'transactions#new'
+  get 'teacher', to: 'transactions#show'
+  get 'edit/teacher', to: 'transactions#edit'
+  get 'courses', to: 'groups#index'
+  get 'course/new', to: 'groups#new'
+ 
+  # get '*path' => redirect('/')
   resources :groups
   resources :sessions, only: [:new, :create, :destroy]
   resources :transactions

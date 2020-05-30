@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
 
   def create
     if params[:session][:name].blank?
-      render 'new'
-      flash.notice = 'Please enter your name'
+      flash.now[:alert] = 'Please enter your name'
+      render :new
     else
       user = User.find_by_name(params[:session][:name])
       if user.present?
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to profile_path, notice: 'Logged in!'
       else
         flash.now[:alert] = 'sign up before you login'
-        render 'new'
+        render :new
       end
     end
   end

@@ -8,12 +8,59 @@
 $main: #3778c2;
 $second: #5fb523;
 $text: #434b54;
+$hover: #254c79;
 
 body{
     font-family: 'proxima_nova_rgregular';
     font-weight: bold;
     color: $text;
     
+}
+
+@mixin header {
+    .princ{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            color: white;
+            font-size: 1.4em;
+        }
+        div{
+            color: white;
+            font-size: 1.2em;
+            a{
+                color: white;
+                padding: 10px;
+                border: 1px solid white;
+                &:hover{
+                    background: $hover;
+                    text-decoration: none;
+                }
+            }
+            ul{
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                
+                li{
+                    width: 100%;
+                    list-style: none;
+                    margin-left: 0 !important;
+                    &:hover{
+                        background: $hover;
+                    }                      
+                }
+            }
+        }   
+    }
+    
+}
+
+.create-transaction,
+.edit-transaction{
+    @include header();
 }
 
 //transactions
@@ -32,23 +79,7 @@ body{
         flex-direction: column;
         align-items: flex-end;
         padding: 10px;
-        .princ{
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            h1{
-                color: white;
-                font-size: 1.4em;
-            }
-            h2{
-                color: white;
-                font-size: 1.2em;
-            }
-            span{
-                padding: 10px;
-                border: 1px solid white;
-            }
-        }
+        @include header();
         .order{
             width: 50%;
             display: flex;
@@ -116,7 +147,7 @@ body{
             outline: none;
             height: 40px;
             &:hover{
-                background: #254c79;
+                background: $hover;
             }
             a{
                 color: white;

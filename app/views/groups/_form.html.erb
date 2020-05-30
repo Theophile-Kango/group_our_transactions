@@ -1,15 +1,33 @@
 <header>
-    <h2><%= link_to '' , groups_path, class: "glyphicon glyphicon-arrow-left" %></h2>
-    <h1><%= @user.name %></h1>
-    <h2><%= link_to "Log Out", logout_path %></h2>
+    <div class="princ">
+        <div>
+            <ul>        
+                <li>
+                    <%= link_to '', teachers_path, 
+                    class: "glyphicon glyphicon-briefcase" %>
+                </li>
+                <li>
+                    <%= link_to '', external_teachers_path, 
+                    class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                </li>
+                <li>
+                    <%= link_to '', courses_path,
+                    class: "glyphicon glyphicon-tasks" %>
+                </li>
+            </ul>
+        </div>
+        <h1><%= @user.name %></h1>
+        <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>       
+    </div> 
 </header>
-<% @group.errors.full_messages.each do |error|%>
-    <ul>
-        <li><%= error %></li>
-    </ul>
-<% end %>
+<ul class="alert-danger">
+    <% @group.errors.full_messages.each do |error| %>
+        <li class="alert"><%= error %></li>
+    <% end %>
+</ul>
 <%= form_for @group do |f|%>
-    <%= f.text_field :name, placeholder: 'Add new group'  %>
+    <%= f.text_field :name, placeholder: 'Add New Course'  %>
     <%= f.file_field :icon %>
-    <%= f.submit %>
+    <%= f.submit 'Submit', class: "submit" %>
+    <%= link_to 'Back to profile', profile_path, class: 'btn btn-default' %>
 <% end %>

@@ -1,28 +1,29 @@
 
+<%= render 'layouts/header' %>
 <div class="profile">
     <div class="menu">
         <div class="user">
             <% if @user.avatar.attached? %>
-                <%= link_to image_tag(@user.avatar), edit_user_path(@user.id) %>
+                <%= link_to image_tag(@user.avatar), edit_user_path(@user.name) %>
             <% else %>
-                <%= link_to image_tag('avatar.png'), edit_user_path(@user.id) %>
+                <%= link_to image_tag('avatar.png'), edit_user_path(@user.name) %>
             <% end %>
             <p><%= @user.name %></p>
         </div>
         <ul>
             <li>
-                <span class="glyphicon glyphicon-tasks"></span>
-                <%= link_to 'all my teachers', transactions_path %>
+                <span class="glyphicon glyphicon-briefcase"></span>
+                <%= link_to 'all my teachers', teachers_path %>
             </li>
             
             <li>
                 <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
-                <%= link_to 'all my external teachers', all_external_transactions_path %>
+                <%= link_to 'all my external teachers', external_teachers_path %>
             </li>
             
             <li>
-                <span class="glyphicon glyphicon-briefcase"></span>
-                <%= link_to 'all my cours', groups_path %>
+                <span class="glyphicon glyphicon-tasks"></span>
+                <%= link_to 'all my courses', courses_path %>
             </li>
         
             <li id="last">

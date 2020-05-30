@@ -3,7 +3,11 @@ class Group < ApplicationRecord
   has_many :group_transactions, dependent: :delete_all
   has_many :transactions, through: :group_transactions, source: 'transaction'
   has_one_attached :icon
-  validates :name, :icon, presence: true
+  
+  validates :icon, attached: true, content_type: [:png, :jpg, :jpeg]
+  
+  
+  validates :name, presence: true, uniqueness: true
 
   def add_group_trans(trans)
     transactions << trans

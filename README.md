@@ -8,11 +8,11 @@
 
 ## Video Presentation
 
-![Presentation](https://youtu.be/Hf39mBMQzzk)
+[Presentation](https://youtu.be/Hf39mBMQzzk)
 
 ## Live demo
 
-![Live Demo](https://cours-track.herokuapp.com)
+[Live Demo](https://cours-track.herokuapp.com)
 
 ## Built With
 

@@ -11,13 +11,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: session[:user_id])
-    @group = user.groups.new(group_params)
+    @user = User.find_by(id: session[:user_id])
+    @group = @user.groups.new(group_params)
 
     if @group.save
-      redirect_to @group, notice: 'Group was successfully created.'
+      redirect_to @group, notice: 'Course was successfully created.'
     else
-      render :new, alert: 'Group was not created.'
+      render :new, alert: 'Course was not created.'
     end
   end
 

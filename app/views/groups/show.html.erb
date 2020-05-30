@@ -1,14 +1,25 @@
 <div class="groups-show">
     <header>
         <div class="princ">
-            <h2><span class="glyphicon glyphicon-align-justify"></span></h2>
+            <div>
+                <ul>        
+                    <li>
+                        <%= link_to '', teachers_path, 
+                        class: "glyphicon glyphicon-briefcase" %>
+                    </li>
+                    <li>
+                        <%= link_to '', external_teachers_path, 
+                        class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                    </li>
+                    <li>
+                        <%= link_to '', courses_path,
+                        class: "glyphicon glyphicon-tasks" %>
+                    </li>
+                </ul>
+            </div>
             <h1><%= @group.name %></h1>
-            <h2><span class="glyphicon glyphicon-search"></span></h2>
-        </div>
-        <div class="order">
-            <p>Most recent</p>
-            <p>Most ancient</p>
-        </div>
+            <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>       
+        </div> 
     </header>
     <section>
         <article>
@@ -21,9 +32,9 @@
             <p><%= link_to group.name, group %></p>
             <% if @group.user.id == @user.id %>
                 <div class="buttons">
-                    <%= link_to 'Delete Group', group_path(group_id: group.id), method: :delete, 
+                    <%= link_to 'Delete Course', group_path(group_id: group.id), method: :delete, 
                     data: {confirm: "Are you sure you want to remove the group ?"}, class: "btn btn-danger" %>
-                    <%= link_to 'Edit Group', edit_group_path(group_id: group.id), class: "btn btn-default" %>
+                    <%= link_to 'Edit Course', edit_group_path(group_id: group.id), class: "btn btn-default" %>
                 </div>
             <% end %>
         <% end %>
@@ -47,6 +58,6 @@
                 <% end %>
             <% end %>
         <% end %>
-        <p id="back"><%= link_to 'Back', groups_path %></p>
+        <p id="back", class="btn btn-default"><%= link_to 'Back to profile', profile_path %></p>
     </section>
 </div>
