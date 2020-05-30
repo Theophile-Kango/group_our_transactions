@@ -27,7 +27,7 @@
 </ul>
 <%= form_for @group do |f|%>
     <%= f.text_field :name, placeholder: 'Add New Course'  %>
-    <%= f.file_field :icon %>
+    <%= f.file_field :icon, direct_upload: true %>
     <%= f.submit 'Submit', class: "submit" %>
     <%= link_to 'Back to profile', profile_path, class: 'btn btn-default' %>
 <% end %>

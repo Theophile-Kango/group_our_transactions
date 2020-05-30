@@ -7,7 +7,7 @@
     <%= render 'layouts/header' %>
     <%= form_with(model: @user, local: true) do |f| %>
         <%= f.text_field :name %>
-        <%= f.file_field :avatar %>
+        <%= f.file_field :avatar, direct_upload: true %>
         <%= f.submit "Submit", class: "submit" %>
     <% end %>
 </div>

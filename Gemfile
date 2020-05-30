@@ -71,5 +71,7 @@ gem 'active_storage_validations'
 
 gem 'mini_magick', '>= 4.9.5'
 
+gem 'cloudinary'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
