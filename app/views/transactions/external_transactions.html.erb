@@ -26,7 +26,7 @@
             <% if trans.groups.size < 1%>
                 <article>
                     <ul>
-                        <li>Vours Name: <%= link_to trans.name, trans %></li>
+                        <li>Teacher's Name: <%= link_to trans.name, trans %></li>
                         <li>Time: <%= pluralize(trans.total, 'hour') %></li>
                         <li>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></li>
                     </ul>

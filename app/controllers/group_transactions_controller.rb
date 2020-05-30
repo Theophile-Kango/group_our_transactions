@@ -1,7 +1,7 @@
 class GroupTransactionsController < ApplicationController
   def create
     GroupTransaction.create!(group_transactions_params)
-    redirect_to groups_path, notice: 'Course was successfully added.'
+    redirect_to groups_path, notice: 'Course was successfully attributed to teacher.'
   end
 
   def destroy
@@ -12,7 +12,7 @@ class GroupTransactionsController < ApplicationController
       break
     end
 
-    redirect_to groups_path, notice: 'Course was successfully removed.'
+    redirect_to groups_path, notice: 'Course was successfully removed to teacher.'
   end
 
   private
