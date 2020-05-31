@@ -33,7 +33,7 @@
                         <ul>
                             <li><%= image_tag url_for(group.icon) %></li>
                             <li id="details"> 
-                                <%= link_to trans.name, teacher_path(trans.name) %>
+                                <%= link_to trans.name, trans %>
                                 <small>Created on : <%= trans.created_at.strftime("%d/%m/%Y") %></small>
                             </li>
                             <li>Time: <%= pluralize(trans.total, 'hour') %></li>

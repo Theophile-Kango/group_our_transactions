@@ -86,6 +86,7 @@ body{
     section{
         color: $text;
         background: rgb(219, 208, 208);
+       
         h2{
             margin-left: 20px;
         }
@@ -111,6 +112,7 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-top: 20px;
             ul{
                 display: flex;
                 padding: 20px;
@@ -138,8 +140,9 @@ body{
             }
         }
         button{
-            width: 100%;
-            margin-top: 10px;
+            width: 47%;
+            margin-left: 20px;
+            margin-bottom: 10px;
             background: $main;
             border: none;
             outline: none;
