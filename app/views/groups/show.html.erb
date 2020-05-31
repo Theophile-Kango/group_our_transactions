@@ -31,7 +31,7 @@
                 </li>
             </ul>
         </article>
-        <% if @group.user.id == @user.id %>
+        <% if @group.user.id == current_user.id %>
             <div class="buttons">
                 <%= link_to 'Delete Course', group_path(group_id: @group.id), method: :delete, 
                 data: {confirm: "Are you sure you want to remove the course ?"}, class: "btn btn-danger" %>
@@ -49,6 +49,7 @@
                 </button>
             <% end %>
         <% end %>
+
         <% @transactions.each do |tr| %>
             <% if @group.group_transactions.find_by(transaction_id: tr.id).nil? %>
                 <p><%= tr.name %></p>
@@ -59,6 +60,7 @@
                 <% end %>
             <% end %>
         <% end %>
+
         <p id="back", class="btn btn-default"><%= link_to 'Back to profile', profile_path %></p>
     </section>
 </div>

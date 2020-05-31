@@ -6,14 +6,11 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @user = User.find_by(id: session[:user_id])
-    @group = @user.groups.new
+    @group = current_user.groups.new
   end
 
   def create
-    @user = User.find_by(id: session[:user_id])
-    @group = @user.groups.new(group_params)
-
+    @group = current_user.groups.new(group_params)
     if @group.save
       redirect_to @group, notice: 'Course was successfully created.'
     else
@@ -23,16 +20,11 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.all.find(params[:id])
-    @user = User.find_by(id: session[:user_id])
-    user = User.find_by(id: session[:user_id])
-    @transactions = user.transactions
-    @group_trans = @user.transactions
-    @groups = @user.groups
-    @group_list = Group.all
+    @transactions = current_user.transactions
+    @groups = current_user.groups
   end
 
   def edit
-    @user = User.find_by(id: session[:user_id])
   end
 
   def update
@@ -55,7 +47,6 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    user = User.find_by(id: session[:user_id])
-    @group = user.groups.find(params[:id])
+    @group = current_user.groups.find(params[:id])
   end
 end

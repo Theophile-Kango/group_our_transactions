@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
 
   def update
     if @transaction.update(transaction_params)
-      redirect_to @transaction, notice: 'Transaction was successfully updated.'
+      redirect_to @transaction, notice: 'Teacher was successfully updated.'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction.destroy
-    redirect_to transactions_url, notice: 'Transaction was successfully destroyed.'
+    redirect_to transactions_url, notice: 'Teacher was successfully destroyed.'
   end
 
   private
