@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'validation' do
     subject do
-      described_class.new(name: 'Theo')
+      described_class.new(name: 'Theophile')
     end
 
     it 'is valid with valid name' do
@@ -12,6 +12,11 @@ RSpec.describe User, type: :model do
 
     it 'is not valid without a name' do
       subject.name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid with a length name < 5 or > 15 charactars' do
+      subject.name = 'theo'
       expect(subject).to_not be_valid
     end
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
   context 'validation test' do
-    it 'ensures first name presence' do
+    it 'ensures name and total presence' do
       transaction = Transaction.new(name: 'Practice one', total: 2).save
       expect(transaction).to eq(false)
     end

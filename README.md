@@ -6,13 +6,27 @@
 
 ![cours-track herokuapp com-iPhone-XS-X-375x812](https://user-images.githubusercontent.com/49276315/83253791-de58d800-a1ad-11ea-86bb-61405f9a8200.png)
 
+## Features
+
+- The user logs into the app by typing the user name
+- The user is presented with a profile page that includes links to:
+  - All my teachers
+  - All my external teachers
+  - All courses
+- A login user can only see the list of teachers he created and he can create, update and delete a teacher
+- A login user can see all the courses and he can associate a teacher to a course
+- A login user can create a course and can only delete and update the course he created
+-  In all my teachers' page, the list of teachers associated with a course is displayed with the image of the course for each teacher  
+- In all my external teachers a list of teachers that are not associated with any course is displayed
+
+
 ## Video Presentation
 
 [Presentation](https://youtu.be/Hf39mBMQzzk)
 
 ## Live demo
 
-[Live Demo](https://cours-track.herokuapp.com)
+[Live Demo](https://courses-track.herokuapp.com)
 
 ## Built With
 

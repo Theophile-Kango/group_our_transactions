@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show edit update destroy]
 
   def index
-    @transactions = current_user.transactions.order('created_at DESC')
+    @transactions = current_user.transactions.includes(:groups).order('created_at DESC')
   end
 
   def external_transactions
