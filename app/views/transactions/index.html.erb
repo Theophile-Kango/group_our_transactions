@@ -24,7 +24,7 @@
     <section>
         <p>
             Total 
-            <span><%= pluralize(@total,'hour') %></span>
+            <span><%= pluralize(current_user.total,'hour') %></span>
         </p>
         <% @transactions.each do |trans| %>
             <% if trans.groups.size >= 1%>

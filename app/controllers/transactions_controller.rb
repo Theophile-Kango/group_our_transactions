@@ -2,30 +2,19 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: %i[show edit update destroy]
 
   def index
-    user = User.find_by(id: session[:user_id])
-    @transactions = user.transactions.order('created_at DESC')
-    @total = 0
-
-    return unless @transactions.size >= 1
-
-    @transactions.each do |trans|
-      @total += trans.total
-    end
+    @transactions = current_user.transactions.order('created_at DESC')
   end
 
   def external_transactions
-    user = User.find_by(id: session[:user_id])
-    @transactions = user.transactions
+    @transactions = current_user.transactions
   end
 
   def new
-    @user = User.find_by(id: session[:user_id])
-    @transaction = @user.transactions.new
+    @transaction = current_user.transactions.new
   end
 
   def create
-    @user = User.find_by(id: session[:user_id])
-    @transaction = @user.transactions.new(transaction_params)
+    @transaction = current_user.transactions.new(transaction_params)
 
     if @transaction.save
       redirect_to @transaction, notice: 'Teacher was successfully created.'
@@ -58,7 +47,6 @@ class TransactionsController < ApplicationController
   end
 
   def set_transaction
-    @user = User.find_by(id: session[:user_id])
-    @transaction = @user.transactions.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
   end
 end

@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-        <h1><%= @user.name %></h1>
+        <h1><%= current_user.name %></h1>
         <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>       
     </div>  
 </header>

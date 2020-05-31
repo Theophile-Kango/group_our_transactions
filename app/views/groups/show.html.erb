@@ -25,11 +25,12 @@
         <article>
             <ul>
                 <li><%= image_tag url_for(@group.icon) %></li>
+                <li>
+                    Course: <%= @group.name %><br>
+                    <small>Created by: <%= @group.user.name %></small>
+                </li>
             </ul>
         </article>
-        <p>Created by: <%= @group.user.name %></p>
-    
-            <p><%= @group.name %></p>
         <% if @group.user.id == @user.id %>
             <div class="buttons">
                 <%= link_to 'Delete Course', group_path(group_id: @group.id), method: :delete, 
