@@ -8,7 +8,9 @@ class User < ApplicationRecord
   def total
     sum = 0
     transactions.each do |trans|
-      sum += trans.total
+      if trans.groups.size >= 1
+        sum += trans.total
+      end
     end
     sum
   end

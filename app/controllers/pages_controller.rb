@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def profile
     @groups = Group.all
-    @groups = @groups.includes([:icon_attachment])
+   
   end
 end
