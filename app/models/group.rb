@@ -12,6 +12,14 @@ class Group < ApplicationRecord
     transactions << trans
   end
 
+  def group_trans(param)
+    group_transactions.find_by(param).nil?
+  end
+
+  def build_trans(param)
+    group_transactions.build(param)
+  end
+
   def has?(value)
     group_transactions.where(transaction: value).first
   end

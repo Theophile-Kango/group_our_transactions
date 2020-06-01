@@ -51,9 +51,9 @@
         <% end %>
 
         <% @transactions.each do |tr| %>
-            <% if @group.group_transactions.find_by(transaction_id: tr.id).nil? %>
+            <% if @group.group_trans(transaction_id: tr.id) %>
                 <p><%= tr.name %></p>
-                <%= form_for @group.group_transactions.build(transaction_id: tr.id) do |f| %>
+                <%= form_for @group.build_trans(transaction_id: tr.id) do |f| %>
                     <%= f.hidden_field :transaction_id %>
                     <%= f.hidden_field :group_id %>
                     <button class="btn btn-primary">Add </button>

@@ -56,7 +56,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.after_initialize do
     #Enable bullet in your application
-    Bullet.alert = true
     Bullet.enable = true
     Bullet.console = true
   end
