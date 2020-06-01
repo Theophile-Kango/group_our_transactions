@@ -40,7 +40,7 @@
             <p>Chapter</p>
             <p id="resent">Recent</p>
         </div>
-        <% @groups.each do |group| %>
+        <% @groups.with_attached_icon.each do |group| %>
             <ul>
                 <li><%= link_to image_tag(group.icon), group %></li>
             </ul>

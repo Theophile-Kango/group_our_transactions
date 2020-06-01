@@ -24,7 +24,7 @@
     </header>
     
     <section>
-        <% @groups.each do |group| %>
+        <% @groups.with_attached_icon.each do |group| %>
             <article>
                 <ul>
                     <li><%= image_tag url_for(group.icon) %></li>

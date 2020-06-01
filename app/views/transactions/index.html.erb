@@ -29,7 +29,7 @@
         <% @transactions.each do |trans| %>
             <% if trans.groups.size >= 1%>
                 <article>
-                    <% trans.groups.each do |group| %>
+                    <% trans.groups.with_attached_icon.each do |group| %>
                         <ul>
                             <li><%= image_tag url_for(group.icon) %></li>
                             <li id="details"> 
