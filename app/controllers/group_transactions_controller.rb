@@ -5,13 +5,8 @@ class GroupTransactionsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: session[:user_id])
-    trans = user.transactions
-    trans.each do |tr|
-      GroupTransaction.delete(tr.groups.find(params[:group_id]).id)
-      break
-    end
-
+    group = Group.all.find_by(params[:id]).group_transactions.find_by(params[:id])
+    GroupTransaction.all.delete(group.id)
     redirect_to groups_path, notice: 'Course was successfully removed to teacher.'
   end
 

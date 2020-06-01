@@ -3,12 +3,12 @@
 <div class="profile">
     <div class="menu">
         <div class="user">
-            <% if @user.avatar.attached? %>
-                <%= link_to image_tag(@user.avatar), edit_user_path(@user.name) %>
+            <% if current_user.avatar.attached? %>
+                <%= link_to image_tag(current_user.avatar), edit_user_path(current_user.name) %>
             <% else %>
-                <%= link_to image_tag('avatar.png'), edit_user_path(@user.name) %>
+                <%= link_to image_tag('avatar.png'), edit_user_path(current_user.name) %>
             <% end %>
-            <p><%= @user.name %></p>
+            <p><%= current_user.name %></p>
         </div>
         <ul>
             <li>

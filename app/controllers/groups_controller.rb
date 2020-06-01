@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all.order('name ASC')
+    @groups = @groups.includes([:icon_attachment])
   end
 
   def new
@@ -21,7 +22,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.all.find(params[:id])
     @transactions = current_user.transactions
-    @groups = current_user.groups
+    @groups = current_user.groups.includes([:icon_attachment])
   end
 
   def edit; end

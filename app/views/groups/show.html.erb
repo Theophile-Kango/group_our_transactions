@@ -40,24 +40,19 @@
         <% end %>
         
         <h2>Teacher(s)</h2>
-        <% @group.group_transactions.each do |group| %>
-            <% str = @transactions.find_by(id: group.transaction_id) %>
-            <% unless str.nil? %>
-                <p><%= str.name %></p>
-                <button id="danger" class="btn btn-danger">
-                    <%= link_to 'Remove', remove_transaction_path(group_id: group.group_id), method: :delete %>
-                </button>
-            <% end %>
-        <% end %>
-
+        
         <% @transactions.each do |tr| %>
+             <p><%= tr.name %></p>
             <% if @group.group_trans(transaction_id: tr.id) %>
-                <p><%= tr.name %></p>
                 <%= form_for @group.build_trans(transaction_id: tr.id) do |f| %>
                     <%= f.hidden_field :transaction_id %>
                     <%= f.hidden_field :group_id %>
                     <button class="btn btn-primary">Add </button>
                 <% end %>
+            <% else %>
+                <button id="danger" class="btn btn-danger">
+                    <%= link_to 'Remove', remove_transaction_path(transaction_id: tr.id), method: :delete %>
+                </button>
             <% end %>
         <% end %>
 
