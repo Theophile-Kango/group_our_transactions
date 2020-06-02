@@ -8,6 +8,10 @@
                         class: "glyphicon glyphicon-briefcase" %>
                     </li>
                     <li>
+                        <%= link_to '', external_teachers_path, 
+                        class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                    </li>
+                    <li>
                         <%= link_to '', courses_path,
                         class: "glyphicon glyphicon-tasks" %>
                     </li>
@@ -33,6 +37,6 @@
                 </article>
             <% end %>
         <% end %>
-        <p id="back", class="btn btn-default"><%= link_to 'Back to profile', profile_path %></p>
+        <%= link_to 'Back to profile', profile_path, class: "btn btn-default", id: "back" %>
     </section>
 </div>

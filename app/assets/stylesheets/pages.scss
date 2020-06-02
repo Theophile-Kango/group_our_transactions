@@ -43,22 +43,21 @@ body{
             align-items: center;
             a{
                 color: $text;
-                size: 2em;
-                &:hover{
-                    text-decoration: none;
-                }
             }
-            button{
+            .button{
                 height: 100%;
                 background: $main;
                 width: 100%;
                 border: none;
                 outline: none;
+                color: $text;
+                size: 2em;
+                color: white;
+                text-align: center;
+                padding-top: 10px;
                 &:hover{
                     background: #254c79;
-                }
-                a{
-                    color: white;
+                    text-decoration: none;
                 }
             }
         }

@@ -7,10 +7,14 @@
                     <li>
                         <%= link_to '', teachers_path, 
                         class: "glyphicon glyphicon-briefcase" %>
-                    </li>        
+                    </li>
                     <li>
                         <%= link_to '', external_teachers_path, 
                         class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                    </li>
+                    <li>
+                        <%= link_to '', courses_path,
+                        class: "glyphicon glyphicon-tasks" %>
                     </li>
                 </ul>
             </div>
@@ -33,7 +37,7 @@
                 </ul>
             </article>
         <% end %>
-        <button><%= link_to 'Create New Course', course_new_path %></button>
-        <p id="back", class="btn btn-default"><%= link_to 'Back to profile', profile_path %></p>
+        <%= link_to 'Create New Course', course_new_path, class: "button" %>
+        <%= link_to 'Back to profile', profile_path, id: "back", class: "btn btn-default" %>
     </section>
 </div>

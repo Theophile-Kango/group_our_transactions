@@ -4,6 +4,10 @@
             <div>
                 <ul>        
                     <li>
+                        <%= link_to '', teachers_path, 
+                        class: "glyphicon glyphicon-briefcase" %>
+                    </li>
+                    <li>
                         <%= link_to '', external_teachers_path, 
                         class: "glyphicon glyphicon-sort-by-attributes-alt" %>
                     </li>
@@ -43,9 +47,9 @@
             <% end %>
         <% end %>
 
-        <button><%= link_to 'Add Teacher', teacher_new_path %></button>
+        <%= link_to 'Add Teacher', teacher_new_path, class: "button" %>
 
-        <p id="back", class="btn btn-default"><%= link_to 'Back to profile', profile_path %></p>
+        <%= link_to 'Back to profile', profile_path, id: "back", class: "btn btn-default" %>
     </section>
 </div>
 

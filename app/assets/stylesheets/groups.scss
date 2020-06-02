@@ -139,6 +139,25 @@ body{
                 }
             }
         }
+
+        .button{
+            display: inline-block;
+            width: 47%;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            text-align: center;
+            background: $main;
+            border: none;
+            outline: none;
+            height: 40px;
+            color: white;
+            &:hover{
+                text-decoration: none;
+                background: #254c79;
+            }
+        }
+
         button{
             width: 47%;
             margin-left: 20px;
@@ -148,6 +167,7 @@ body{
             outline: none;
             height: 40px;
             &:hover{
+                outline: none;
                 background: #254c79;
             }
             a{
@@ -165,11 +185,10 @@ body{
         }
         #back{
             height: 40px;
-            a{
-                width: 100%;
-                text-align: center;
-                color: $text;
-            }
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+            color: $text;
         }
     }
     

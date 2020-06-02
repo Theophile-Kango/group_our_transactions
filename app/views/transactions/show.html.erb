@@ -30,6 +30,6 @@
                 <%= link_to 'Edit Teacher', edit_transaction_path(transaction_id: @transaction.id), 
                 class:"btn btn-primary" %>
             </div>
-        <p id="back", class="btn btn-default"><%= link_to 'Back to profile', profile_path %></p>
+        <%= link_to 'Back to profile', profile_path, id: "back", class: "btn btn-default" %>
     </section>
 </div>
