@@ -1,0 +1,35 @@
+<div class="transaction">
+    <header>
+        <div class="princ">
+            <div>
+                <ul>        
+                    <li>
+                        <%= link_to '', teachers_path, 
+                        class: "glyphicon glyphicon-briefcase" %>
+                    </li>
+                    <li>
+                        <%= link_to '', external_teachers_path, 
+                        class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                    </li>
+                    <li>
+                        <%= link_to '', courses_path,
+                        class: "glyphicon glyphicon-tasks" %>
+                    </li>
+                </ul>
+            </div>
+            <h1><%= @transaction.name %></h1>
+            <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>       
+        </div> 
+    </header>
+    <section>
+        <p id="total">Total : <%= @transaction.total %></p>
+        <p>Created on : <%= @transaction.created_at.strftime("%d/%m/%Y") %> </p>
+            <div class="buttons">
+                <%= link_to 'Remove Teacher', transaction_path(transaction_id: @transaction.id), method: :delete, 
+                    data: {confirm: "Are you sure you want to remove the teacher ?"}, class: "btn btn-danger" %>
+                <%= link_to 'Edit Teacher', edit_transaction_path(transaction_id: @transaction.id), 
+                class:"btn btn-primary" %>
+            </div>
+        <%= link_to 'Back to profile', profile_path, id: "back", class: "btn btn-default" %>
+    </section>
+</div>

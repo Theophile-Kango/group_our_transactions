@@ -1,24 +1,81 @@
-# README
+# Courses Track App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> The project is about grouping hours spent on different courses at the University with a mobile web app
 
-Things you may want to cover:
+## User Profile Page
 
-* Ruby version
+![cours-track herokuapp com-iPhone-XS-X-375x812](https://user-images.githubusercontent.com/49276315/83253791-de58d800-a1ad-11ea-86bb-61405f9a8200.png)
 
-* System dependencies
+## Features
 
-* Configuration
+- The user logs into the app by typing the user name
+- The user is presented with a profile page that includes links to:
+  - All my teachers
+  - All my external teachers
+  - All courses
+- A login user can only see the list of teachers he created and he can create, update and delete a teacher
+- A login user can see all the courses and he can associate a teacher to a course
+- A login user can create a course and can only delete and update the course he created
+-  In all my teachers' page, the list of teachers associated with a course is displayed with the image of the course for each teacher  
+- In all my external teachers a list of teachers that are not associated with any course is displayed
 
-* Database creation
 
-* Database initialization
+## Video Presentation
 
-* How to run the test suite
+[Presentation](https://youtu.be/pP40lWlStKE)
 
-* Services (job queues, cache servers, search engines, etc.)
+## Live demo
 
-* Deployment instructions
+[Live Demo](https://courses-track.herokuapp.com)
 
-* ...
+## Built With
+
+- Ruby
+- Ruby on rails 
+- bootstrap 4
+
+### Prerequisites
+
+- Get ruby latest version installed
+- Get ruby on rails latest version installed
+- Get postgresql installed
+
+### Setup
+
+- Clone the repository on your local machine
+- cd into the folder
+- run bundle install
+- run rails db:migrate
+- run rails server
+
+### Install
+
+- Install VSCode or any code editor you like
+- Install Ruby(most recent version)
+- Install Ruby on rails
+
+## Author
+
+👤 **Theophile Kango**
+
+- Github: [@githubhandle](https://github.com/Theophile-Kango)
+- Twitter: [@twitterhandle](https://twitter.com/Theophadh)
+- Linkedin: [linkedin](https://www.linkedin.com/in/theophile-kango-b6b580194/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Theophile-Kango/group_our_transactions/issues)
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+

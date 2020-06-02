@@ -1,0 +1,33 @@
+<header>
+    <div class="princ">
+        <div>
+            <ul>        
+                <li>
+                    <%= link_to '', teachers_path, 
+                    class: "glyphicon glyphicon-briefcase" %>
+                </li>
+                <li>
+                    <%= link_to '', external_teachers_path, 
+                    class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                </li>
+                <li>
+                    <%= link_to '', courses_path,
+                    class: "glyphicon glyphicon-tasks" %>
+                </li>
+            </ul>
+        </div>
+        <h1><%= current_user.name %></h1>
+        <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>       
+    </div> 
+</header>
+<ul class="alert-danger">
+    <% @group.errors.full_messages.each do |error| %>
+        <li class="alert"><%= error %></li>
+    <% end %>
+</ul>
+<%= form_for @group do |f|%>
+    <%= f.text_field :name, placeholder: 'Add New Course'  %>
+    <%= f.file_field :icon, direct_upload: true %>
+    <%= f.submit 'Submit', class: "submit" %>
+    <%= link_to 'Back to profile', profile_path, class: 'btn btn-default' %>
+<% end %>

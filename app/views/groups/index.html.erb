@@ -1,0 +1,43 @@
+
+<div class="groups">
+    <header>
+        <div class="princ">
+            <div>
+                <ul>
+                    <li>
+                        <%= link_to '', teachers_path, 
+                        class: "glyphicon glyphicon-briefcase" %>
+                    </li>
+                    <li>
+                        <%= link_to '', external_teachers_path, 
+                        class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                    </li>
+                    <li>
+                        <%= link_to '', courses_path,
+                        class: "glyphicon glyphicon-tasks" %>
+                    </li>
+                </ul>
+            </div>
+            <h1><%= pluralize(@groups.count, 'Course') %></h1>
+            <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>
+        </div>
+        <div class="order">
+            <p>Most recent</p>
+            <p>Most ancient</p>
+        </div>
+    </header>
+    
+    <section>
+        <% @groups.with_attached_icon.each do |group| %>
+            <article>
+                <ul>
+                    <li><%= image_tag url_for(group.icon) %></li>
+                    <li id="details">Name: <%= link_to group.name, group %></li>
+                    <li>Created on : <%= group.created_at.strftime("%d/%m/%Y") %></li>
+                </ul>
+            </article>
+        <% end %>
+        <%= link_to 'Create New Course', course_new_path, class: "button" %>
+        <%= link_to 'Back to profile', profile_path, id: "back", class: "btn btn-default" %>
+    </section>
+</div>

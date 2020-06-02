@@ -1,0 +1,66 @@
+<div class="groups-show">
+    <header>
+        <div class="princ">
+            <div>
+                <ul>        
+                    <li>
+                        <%= link_to '', teachers_path, 
+                        class: "glyphicon glyphicon-briefcase" %>
+                    </li>
+                    <li>
+                        <%= link_to '', external_teachers_path, 
+                        class: "glyphicon glyphicon-sort-by-attributes-alt" %>
+                    </li>
+                    <li>
+                        <%= link_to '', courses_path,
+                        class: "glyphicon glyphicon-tasks" %>
+                    </li>
+                </ul>
+            </div>
+            <h1><%= @group.name %></h1>
+            <div><%= link_to '', logout_path, class: "glyphicon glyphicon-off" %></div>       
+        </div> 
+    </header>
+    <section>
+        <article>
+            <ul>
+                <li><%= image_tag url_for(@group.icon) %></li>
+                <li>
+                    Course: <%= @group.name %><br>
+                    <small>Created by: <%= @group.user.name %></small>
+                </li>
+            </ul>
+        </article>
+        <% if @group.user.id == current_user.id %>
+            <div class="buttons">
+                <%= link_to 'Delete Course', group_path(group_id: @group.id), method: :delete, 
+                data: {confirm: "Are you sure you want to remove the course ?"}, class: "btn btn-danger" %>
+                <%= link_to 'Edit Course', edit_group_path(group_id: @group.id), class: "btn btn-default" %>
+            </div>
+        <% end %>
+        
+        <h2>Teacher(s)</h2>
+        <% @group.group_transactions.each do |group| %>
+            <% str = @transactions.find_by(id: group.transaction_id) %>
+            <% unless str.nil? %>
+                <p><%= str.name %></p>
+                <button id="danger" class="btn btn-danger">
+                    <%= link_to 'Remove', remove_transaction_path(group_id: group.group_id), method: :delete %>
+                </button>
+            <% end %>
+        <% end %>
+
+        <% @transactions.each do |tr| %>
+            <% if @group.group_trans(transaction_id: tr.id) %>
+                <p><%= tr.name %></p>
+                <%= form_for @group.build_trans(transaction_id: tr.id) do |f| %>
+                    <%= f.hidden_field :transaction_id %>
+                    <%= f.hidden_field :group_id %>
+                    <button class="btn btn-primary">Add </button>
+                <% end %>
+            <% end %>
+        <% end %>
+
+        <%= link_to 'Back to profile', profile_path, id: "back", class: "btn btn-default" %>
+    </section>
+</div>
